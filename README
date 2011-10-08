@@ -1,0 +1,77 @@
+Wikidot Archiver - The Wikidot wiki archival bot
+
+The free wiki host Wikidot provides a free service of public wikis that users
+can use to create their own websites and wikis where the community can often
+join in to contribute or help maintain the creative content on the sites. The
+ease of creation and use makes it the perfect place to throw up a wiki on the
+fly.
+
+But alas, Wikidot.com developers have frozen development on Wikidot.org since
+2009 and it has become much more harder to interface to write software that
+can interface with the service in a clean and automated manner. There is an
+API offered for developers at http://www.wikidot.com/doc%3Aapi-methods but it
+requires potential developers to obtain a developer key that cannot be
+distributed to users with written software (users have to get their own) and
+the extraordinary amount of limitations and lack of features severely limits a
+developer's ability to access the rich content and comprehensive features
+offered to the regular user, and it does not seem as if the limitations will be
+resolved in the forseeable future. This project's goal is to fix that problem.
+
+The main goals of this project are:
+1) To write simple, free, portable software that will be able to read and
+archive the vast troves of data offered by a wiki hosted on Wikidot.
+2) Store and organize said data locally in formats of the user's choosing such
+as simple to read plain-text formats (default), XML, SQL databases, etc.
+3) (Maybe) Offer tools that will aid in analysis of the collected data.
+4) Keep an accurate and comprehensive archive of all actions and content made
+on a given wiki, including deletions.
+
+We intend to achieve these goals by reverse-engineering the protocol that
+governs the communication between a user's browser and the Wikidot.com servers.
+Specifically, the AJAX requests that the Wikidot-provided client-side JS
+scripts make when a user accesses site features such as edit history retrieval
+and accessing page meta-data.
+
+Features specific to modifying the state of a wiki like making page edits and
+posting comments are strictly not within the scope of this project. The goal is
+solely to make the data easily accessible without arbitrary restrictions, not
+to modify it.
+
+Current plans are either to develop in JavaScript so that the software can be
+ported as an add-on for browsers such as Firefox, or to use a scripting
+language that is strong in string processing such as Perl. More on this as the
+project takes off.
+
+Planned Features and Rough Future Plan:
+
+Archival:
+[ ] Download the raw Wikidot source of one page
+[ ] Download the meta-data of one page
+	[ ] Title
+	[ ] Revision history
+	[ ] File list
+	[ ] Rating
+	[ ] List of user votes
+	[ ] Tags
+[ ] Download the source and/or meta-data of a list of pages
+[ ] Download the source of a given revision of a page
+[ ] Download the meta-data of the source of a given revision of a page
+[ ] Download the list of categories
+[ ] Download the full list of pages on a wiki
+	[ ] Through the API's pages.select method
+	[ ] Through a parseable ListPages page (e.g. /system:list-all-pages)
+[ ] Download all pages of a wiki
+[ ] Download all forum posts made on the wiki
+	[ ] Download the revision history of forum posts
+[ ] Download all files of a wiki
+
+Analysis: (To be worked on when the above features are more-or-less complete)
+[ ] Construct connectivity graph between pages
+[ ] n-gram analysis and other linguistic analysis
+[ ] Trend spotting/analysis
+[ ] Voting history trends
+[ ] Generate word clouds on sources and/or meta-data such as tags used
+
+Change history:
+2011/10/08:
+- Wrote first draft of README
